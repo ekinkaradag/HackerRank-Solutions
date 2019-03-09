@@ -3,37 +3,31 @@
 using namespace std;
 
 void nextMove(int n, int r, int c, vector <string> grid){
-    int mx,my,px,py;
-    for(int i = 0;i < grid.size();i++){
-        for(int j = 0;j < grid[i].size();j++){
-            if( grid[i][j] == 'm'){
-                mx=j;
-                my=i;
+    int px,py;
+    bool flag= false;
+    for(int i = 0;i < n;i++){
+        if(flag){
+            break;
+        }else{
+            for(int j = 0;j < n;j++){
+                if( grid[i][j] == 'p'){
+                    px=j;
+                    py=i;
+                    flag=true;
+                    break;
+                }
+                    
             }
-            else if( grid[i][j] == 'p'){
-                px=j;
-                py=i;
-            }
-                
         }
     }
-    if(mx>px){
+    if(c>px)
         cout << "LEFT\n";
-        mx--;
-    }
-    else if(mx<px){
+    else if(c<px)
         cout << "RIGHT\n";
-        mx++;
-    }
-    else if (my>py){
+    else if (r>py)
         cout << "UP\n";
-        my--;
-    }
-    else if(my<py){
+    else if(r<py)
         cout << "DOWN\n";
-        my++;
-    }
-    
     
 }
 
